@@ -78,10 +78,10 @@ export default function App (){
             </div>
             <div className="p-20 flex flex-col md:flex-row justify-between">
                 <img src='./cargo2.jpg' alt='cargo' className="h-1/2"/>
-                <div className="flex flex-col justify-center p-10">
+                <div className="flex flex-col justify-center md:p-2">
 
                 <p className="p-2 font-bold text-3xl md:text-6xl w-1/2 text-blue-500">Company <span className="text-red-500">Overview</span></p>
-                <p className="text-gray-500 text-sm md:text-2xl">Crystalshipments is the world’s driving worldwide coordinations supplier — we uphold industry and exchange the worldwide trade of merchandise through land transport.Crystalshipments is the world’s driving worldwide coordinations supplier — we uphold industry and exchange the worldwide trade of merchandise through land transport.
+                <p className="text-gray-500 text-sm md:text-2xl">Crystalshipments is the world’s driving worldwide coordinations supplier — we uphold industry and exchange the worldwide trade of merchandise through land transport.Crystalshipments is the world’s driving worldwide coordinations supplier
 
             Our worth added administrations guarantee the progression of products proceeds consistently and supply chains stay lean and streamlined for progress.</p>
                 </div>
