@@ -13,7 +13,7 @@ export default function App (){
           name:'Starter',
           price:500,
           min:100,
-          length:'5 days',
+          length:'5',
           percentage:25,
           discount:false
         },{
