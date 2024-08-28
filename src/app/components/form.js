@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Form(){
     return(
         <div className="bg-white p-8">
@@ -40,7 +42,10 @@ export default function Form(){
             <input style={{ }} className="cursor-pointer" name='fragile' type="checkbox" />
                 <p className="text-black">Packaging</p>
             </label>  
+            <Link href='/about'>
+
             <button className="bg-blue-800 p-3 rounded-lg font-bold hover:bg-blue-600">Submit</button>
+            </Link>
             </div>
         </div>
     )

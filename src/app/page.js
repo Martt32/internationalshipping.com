@@ -1,25 +1,80 @@
-import Form from '../components/form'
-import Pricing from '../components/Pricing'
+'use client'
+
+import Form from './components/form'
+import Pricing from './components/Pricing'
 import Link from 'next/link'
+import * as React from 'react'
 
 export default function App (){
+
+    const plans =[
+    
+        {
+          name:'Starter',
+          price:500,
+          min:100,
+          length:'5 days',
+          percentage:25,
+          discount:false
+        },{
+          name:'Premium',
+          price:2000,
+          length:'10 days',
+          percentage:35,
+          min:500,
+          discount:false
+          
+        },{
+          name:'Gold',
+          price:5000,
+          length:'15 days',
+          min:2000,
+          percentage:45,
+          discount:false
+        },{
+          name:'Diamond',
+          price:10000,
+          min:5000,
+          length:'20 days',
+          percentage:55,
+          discount:false
+        },
+      ]
+
+      const [currPlan, setCurrPlan] = React.useState({})
+        const popUp = async ()=>{
+        const popup = document.querySelector('.popup')
+            popup.classList.toggle('active')
+        }
+        React.useEffect(()=>{
+        if(currPlan.name ){
+            popUp()
+        }else{
+            console.log('no plan selected')
+        }
+        },[currPlan])
+        const [choicePrice, setChoicePrice] = React.useState(currPlan.price)
+        const [checking, setChecking] = React.useState(false)
     return(
         <main className="">
             <div className="hero flex justify-between items-center p-4">
-                <div className="flex flex-col">
+                <div className="flex flex-col ">
                 <p className="p-2 font-bold text-3xl md:text-8xl md:w-1/2 text-blue-500">Best <span className="text-red-500">Logistics</span> Everywhere</p>
                 <p className="p-2 font-bold text-2xl text-blue-900">We are commited to providing our customers with exceptional services</p>
                 <div>
-                    <Link href='track'>
+                    <Link href='about'>
                 <button className=" cursor-pointer hover:bg-blue-400 p-4 text-2xl bg-blue-500 rounded-lg">
                     Track It -&gt;
                 </button>
                     </Link>
                 </div>
                 </div>
+                <Link href='/about'>
+
                 <button className="w-auto hidden md:flex cursor-pointer hover:bg-red-400 p-4 text-2xl bg-red-500 rounded-lg">
                     Track It -&gt;
                 </button>
+                </Link>
             </div>
             <div className="p-20 flex flex-col md:flex-row justify-between">
                 <img src='./cargo2.jpg' alt='cargo' className="h-1/2"/>
@@ -65,9 +120,11 @@ export default function App (){
                 </div>
                 <div className='flex flex-col space-y-10 justify-center items-center p-6 bg-gray-500'>
                     <p className='font-bold text-5xl text-blue-700 flex flex-col justify-center items-center'>Leading delivery service <span className='text-white'>and</span> <span className='text-red-700'>Logistic provider</span></p>
-                    <button className="w-auto hidden md:flex cursor-pointer hover:bg-red-400 p-4 text-2xl bg-red-500 rounded-lg">
+                    <Link href='/about'>
+                <button className="w-auto hidden md:flex cursor-pointer hover:bg-red-400 p-4 text-2xl bg-red-500 rounded-lg">
                     Track It -&gt;
                 </button>
+                    </Link>
                 </div>
         </main>
     )
