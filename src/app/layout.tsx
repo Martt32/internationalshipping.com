@@ -5,7 +5,7 @@ import Navbar from "./components/Layout.js";
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Crystal Shipments",
+  title: "International Shipping",
   description: "Ship and track your cargo",
 };
 

@@ -19,6 +19,8 @@ export default function Form(){
                     <option value="Oak">Ocean Freight</option>
                     <option value="Palm">Road Freight</option>
                 </select>
+
+
             </form>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <input style={{ border:'1px solid gray' }} className="p-2 text-blue-500" name='subject' type="number" placeholder="Weight"/>

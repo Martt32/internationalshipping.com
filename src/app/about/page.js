@@ -1,17 +1,193 @@
+'use client'
+// import { useEffect, useState } from 'react';
+
+// export default function TrackingPage() {
+//   const [trackingData, setTrackingData] = useState(null);
+
+//   useEffect(() => {
+//     async function fetchTrackingData() {
+//       try {
+//         const carrier = 'usps';
+//         const trackingNumber = '9205590164917312751089';
+        
+//         const response = await fetch(`/api?carrier=${carrier}&trackingNumber=${trackingNumber}`);
+        
+//         if (!response.ok) {
+//           throw new Error('Failed to fetch tracking data');
+//         }
+
+//         const data = await response.json();
+//         setTrackingData(data);
+//         console.log(trackingData)
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     }
+
+//     fetchTrackingData();
+//   }, []);
+
+//   return (
+//     <div>
+//       <h1>Tracking Information</h1>
+//       {trackingData ? (
+//         <pre>{JSON.stringify(trackingData, null, 2)}</pre>
+//       ) : (
+//         <p>Loading...</p>
+//       )}
+//     </div>
+//   );
+// }
+
 import Link from "next/link"
 import * as React from 'react'
-
+import { Shippo } from "shippo";
+import axios from "axios";
 
 export default function Track(){
   
+    const [company, setCompany] = React.useState('')
+    const keys =[
+      "key_NA5HK6RFR1",
+      "key_7EOPCKGI47",
+      "key_8O1Q2AZE51",
+      "key_GC3046CCHZ",
+      "key_KIFQD2WJZZ",
+      "key_I8QN1XU4VU",
+      "key_9TBNBVP4AS",
+      "key_J12UG9PZQ8",
+      "key_T1V8ZFTWMQ",
+      "key_ZP725C8XGS",
+      "key_JHGQP2O6ZT",
+      "key_7F2781TK89",
+      "key_UOSKSBX0YF",
+      "key_U2UWOVWQNR",
+      "key_P4QZUH5MIM",
+      "key_E0CPFIG5ZR",
+      "key_9WK4IE06PI",
+      "key_T0BAVY11ND",
+      "key_MD6RS8LNP6",
+      "key_RAXM3I3MK5",
+      "key_SFX2EQ53X1",
+      "key_85SXP838V7",
+      "key_I9MTYZ05T",
+      "key_2KW7PWMQE4",
+      "key_WD874Z9I3U"
+    ]
+
+    const [input, setInput] = React.useState('');
+  const [foundKey, setFoundKey] = React.useState(null);
+
+  // Function to search for the key
+  const findKey = () => {
+    const result = keys.find((key) => key === input); // Search for exact match
+    setFoundKey(result); // Set found key in state
+
+    track()
+  };
+
+
+    // const apiToken = 'shippo_live_1aebb824c6516c0d8a0ed2b77b53702c39e2e3f9';
+    // const carrierToken = 'fedex_uk';
+    // const trackingNumber = 'XXFR-GHFT-57HN-9';
+    
+    // async function track() {
+    //   const url = "https://api.goshippo.com/tracks/";
+    
+    //   const headers = {
+    //     // "Authorization": "ShippoToken shippo_live_1aebb824c6516c0d8a0ed2b77b53702c39e2e3f9",
+    //     "Content-Type": "application/json"
+    //   };
+    
+    //   const data = {
+    //     "carrier": "usps",
+    //     "tracking_number": "9205590164917312751089",
+    //     "metadata": "Order 000123"
+    //   };
+    
+    //   try {
+    //     const response = await fetch(url, {
+    //       method: "POST",
+    //       headers: headers,
+    //       body: JSON.stringify(data)
+    //     });
+    
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP error! Status: ${response.status}`);
+    //     }
+    
+    //     const result = await response.json();
+    //     console.log(result);
+    //   } catch (error) {
+    //     console.error("Error fetching shipment tracking data:", error);
+    //   }
+    // }  
+    
+    async function track() {
+      const url = 'https://api.goshippo.com/tracks/usps/9205590164917312751089';
+    
+      const headers = {
+        'Authorization': ' ShippoToken <shippo_live_1aebb824c6516c0d8a0ed2b77b53702c39e2e3f9>',
+      };
+    
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: headers,
+        });
+    
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        const result = await response.json();
+        console.log(result);
+      } catch (error) {
+        console.error('Error fetching tracking details:', error);
+      }
+    }
+    
+    
+    
+
+     const popUp = async ()=>{
+      const popup = document.querySelector('.popup')
+          popup.classList.toggle('active')
+      }
 
     return(
         <div className="flex flex-col justify-center items-center space-y-5 p-4">
+          <div className="popup" id="popup-1">
+      <div className="overlay">
+        <div className="content flex flex-col justify-center items-center p-4 shadow-md bg-white space-y-6">
+        <p className='font-bold text-blue-800 text-2xl p-3'>Input your tracking pass sent to your email</p>
+        <input style={{ border:'solid 1px gray' }} onClick={(e) => setInput(e.target.value)} className="p-4 text-blue-700" name='track' type='text' placeholder={`Tracking pass`}/>
+        {foundKey ? (
+        <p className="font-bold text-green-600">Validated: {foundKey}</p>
+      ) : (
+        input && <p className="font-bold text-red-600">Key not found</p> // Show message if no key is found
+      )}
+        <div className="flex flex-col-reverse md:flex-row justify-center items-center md:space-x-4 md:space-y-0">
+          <Link href='/#pricing'>
+        <p  className='md:m-0 m-4 font-bold text-white bg-blue-800 p-4 shadow-md cursor-pointer rounded-lg'>Get Tracking pass</p>
+          </Link>
+          <p className="text-black font-bold">Or</p>
+        <p onClick={findKey} className='md:m-0 m-4 text-center font-bold text-white hover:bg-green-600 bg-green-800 p-4 shadow-md cursor-pointer rounded-lg'>Continue</p>
+        </div>
+        </div>
+      </div>
+    </div>
             <p className="font-bold text-4xl text-blue-600">Tracking Code</p>
-            <input style={{ border:'solid 1px gray' }} className="p-4 text-blue-700" name='track' type='text' placeholder="Tracking Number"/>
-            <Link href='/#pricing'>
-                <p className="font-bold bg-blue-500 p-4 px-8 rounded-lg">Submit</p>
-            </Link> 
+                <select onChange={(e) => setCompany(e.target.value)} style={{ border:'1px solid gray' }} className='p-2 text-black' >
+                    <option value="Palm">Company</option>
+                    <option value="FedEx">FedEx</option>
+                    <option value="UPS">UPS</option>
+                    <option value="USPS">USPS</option>
+                </select>
+            {company !== '' && <input style={{ border:'solid 1px gray' }} className="p-4 text-blue-700" name='track' type='text' placeholder={`${company} Tracking Number`}/>}
+            {/* <Link href='/#pricing'> */}
+                <p onClick={popUp} className="font-bold bg-blue-500 cursor-pointer p-4 hover:bg-blue-600 px-8 rounded-lg">Submit</p>
+            {/* </Link>  */}
         </div>
     )
 }

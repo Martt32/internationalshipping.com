@@ -107,14 +107,14 @@ export default function App (){
                     </div>
                 </div>
             </div>
-                <div className="quote p-6 flex flex-col md:flex-row my-10">
+                <div className="quote p-8 flex flex-col md:flex-row my-10">
                     <div className='p-4'>
                     <p className="font-bold text-6xl p-4 text-blue-500">Cost <span className='text-red-600'>Calculator</span></p>
                     <p className="font-bold p-4">Get instant, accurate delivery quotes with our easy-to-use calculator. Plan your shipment with confidence.</p>
                     </div>
                     <Form/>
                 </div>
-                <div id='pricing'>
+                <div id='pricing' className='py-10'>
 
                 <Pricing/>
                 </div>
