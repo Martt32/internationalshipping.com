@@ -22,7 +22,7 @@ export default function App (){
           length:'10 days',
           percentage:35,
           min:500,
-          discount:false
+          discount:false,
           
         },{
           name:'Gold',
@@ -30,7 +30,7 @@ export default function App (){
           length:'15 days',
           min:2000,
           percentage:45,
-          discount:false
+          discount:false,
         },{
           name:'Diamond',
           price:10000,

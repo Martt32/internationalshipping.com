@@ -2,7 +2,7 @@
 // import { useEffect, useState } from 'react';
 
 // export default function TrackingPage() {
-//   const [trackingData, setTrackingData] = useState(null);
+//   const [trackingData, setTrackingData] = useState(null);s
 
 //   useEffect(() => {
 //     async function fetchTrackingData() {

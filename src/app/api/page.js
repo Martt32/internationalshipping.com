@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       const data = await response.json();
       return res.status(200).json(data);
     } else {
-      // Handle any other HTTP method
+      // Handle any other HTTP methods
       // res.setHeader('Allow', ['GET']);
       res.status(405).end(`Method ${req.method} Not Allowed`);
     }

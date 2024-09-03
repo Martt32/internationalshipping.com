@@ -43,7 +43,7 @@ export default function Pricing(){
             console.log(send)
             popUp()
         } catch (error) {
-          alert('Something went wrong')
+          alert('Somethings went wrong')
         }
         }
       const [currPlan, setCurrPlan] = React.useState({})
