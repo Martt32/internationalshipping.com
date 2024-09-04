@@ -163,7 +163,31 @@ export default function Track(){
         <p className='font-bold text-blue-800 text-2xl p-3'>Input your tracking pass sent to your email</p>
         <input style={{ border:'solid 1px gray' }} onClick={(e) => setInput(e.target.value)} className="p-4 text-blue-700" name='track' type='text' placeholder={`Tracking pass`}/>
         {foundKey ? (
-        <p className="font-bold text-green-600">Validated: {foundKey}</p>
+        <div>
+          <p className="font-bold text-green-600">Validated: {foundKey}</p>
+          <div className="grid grid-cols-2 gap-6 p-4">
+            <div className="flex ">
+              <img style={{ width:25 }} src='tick.png'/>
+              <p className="text-black font-bold">Ordered</p>
+            </div>
+            
+            <div className="flex ">
+              <img style={{ width:25 }} src='loading.svg'/>
+              <p className="text-black font-bold">Shipped</p>
+            </div>
+            
+            <div className="flex ">
+              <img style={{ width:25 }} src='loading.svg'/>
+              <p className="text-black font-bold">Moved</p>
+            </div>
+            
+            <div className="flex ">
+              <img style={{ width:25 }} src='cancel.png'/>
+              <p className="text-black font-bold">Delivered</p>
+            </div>
+            
+          </div>
+        </div>
       ) : (
         input && <p className="font-bold text-red-600">Key not found</p> // Show message if no key is found
       )}

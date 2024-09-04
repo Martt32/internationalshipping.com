@@ -8,7 +8,10 @@ const Navbar = ({ children }) => {
             {
             //navbar
             }
+            <div className="flex justify-center items-center">
+            <img style={{ width:80 }} className="rounded-full" src='/large.png'/>
             <p className="font-bold text-2xl text-blue-500">International Shipping</p>
+            </div>
             <div className="justify-center items-center space-x-6 flex">
                 <Link href='/'>
                 <p className="font-bold text-blue-500 hover:grey-300">Home</p>
