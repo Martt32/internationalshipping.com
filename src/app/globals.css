@@ -85,3 +85,8 @@ body {
   transition: all 300ms ease-in-out;
   background-color: #ffffff;
 }
+.vertical-line{
+  width: 4px;
+  height: 50px;
+  margin: 0 10px;
+}
