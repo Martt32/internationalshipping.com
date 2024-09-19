@@ -23,7 +23,7 @@ export default function Track(){
 return(
 <div className="content flex flex-col justify-center items-center p-4 shadow-md bg-white">
         <p className='font-bold text-blue-800 text-4xl'>Transfer</p>
-        <p className='font-bold text-blue-800 text-2xl'>Send £500 to</p>
+        <p className='font-bold text-blue-800 text-2xl'>Send £2000 to</p>
         <div className="flex flex-col space-y-6 p-4 ">
 
         <p className='font-bold text-blue-800'>Skrill Ltd.</p>

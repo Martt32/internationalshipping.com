@@ -54,14 +54,19 @@ export default function Track(){
         gift:'Jewelry',
         amount:'£5,000',
         address:'48 daneshill Rd, Leicester LE3 6AL, UK',
-        skey:'key_I8QN1XU4VU'
+        skey:'key_I8QN1XU4VU',
+        tkey:'key_T1V8ZFTWMQ',
+        ukey:'key_ZP725C8XGS',
       },
       {
         key:"key_7EOPCKGI47",
         cheque:'£30,000',
         gift:'flower vase, magnets (knicKnacks)',
         address:'57 Pica Cottages, Workington, CA14 4QA, UK',
-        skey:'key_KIFQD2WJZZ'
+        skey:'key_KIFQD2WJZZ',
+        tkey:'key_9TBNBVP4AS',
+        ukey:'key_J12UG9PZQ8',
+
       },
       {
         key:"key_8O1Q2AZE51",
@@ -69,13 +74,7 @@ export default function Track(){
         gift:'',
         skey:'key_GC3046CCHZ'
       },
-      // "key_GC3046CCHZ",
-      // "key_KIFQD2WJZZ",
-      // "key_I8QN1XU4VU",
-      // "key_9TBNBVP4AS",
-      // "key_J12UG9PZQ8",
-      // "key_T1V8ZFTWMQ",
-      // "key_ZP725C8XGS",
+
       // "key_JHGQP2O6ZT",
       // "key_7F2781TK89",
       // "key_UOSKSBX0YF",
@@ -98,6 +97,7 @@ export default function Track(){
 
   const [Kinput, setKInput] = React.useState('');
   const [scannedKey, setScannedKey] = React.useState(null);
+  const [Tinput, setTInput] = React.useState('');
 
   // Function to search for the key
   const findKey = () => {
@@ -253,7 +253,7 @@ export default function Track(){
                 Shipment created, ordered to: <span className="text-orange-500">{foundKey.address}</span> 
                </p>
 
-               <input style={{ border:'solid 1px gray' }} onChange={(e) => setKInput(e.target.value)} className="p-4 text-blue-700" name='track' type='text' placeholder={`Tracking pass`}/>
+               {/* <input style={{ border:'solid 1px gray' }} onChange={(e) => setKInput(e.target.value)} className="p-4 text-blue-700" name='track' type='text' placeholder={`Airport pass`}/> */}
               <img style={{ width:25 }} src='tick.png'/>
                <p className="font-bold text-sm text-black">
                 Ordered 
@@ -264,12 +264,15 @@ export default function Track(){
                 shipped
                </p>
                <div className="vertical-line rounded-lg bg-green-700"></div>
+               <input style={{ border:'solid 1px gray' }} onChange={(e) => setKInput(e.target.value)} className="p-4 text-blue-700" name='track' type='text' placeholder={`Airport pass`}/>
                <img style={{ width:25 }} src={`${Kinput === foundKey.skey ? 'tick.png' : 'loading.svg'}`}/>
                <p className={`font-bold text-sm ${Kinput === foundKey.skey ? 'text-green-600' : 'text-gray-500'}`}>
-                Scanned 
+                Airport 
                </p>
                <div className={`vertical-line rounded-lg ${Kinput === foundKey.skey ? 'bg-green-600' : 'bg-gray-500'}`}></div>
+               <input style={{ border:'solid 1px gray' }} onChange={(e) => setTInput(e.target.value)} className="p-4 text-blue-700" name='track' type='text' placeholder={`Road Freight`}/>
                <img style={{ width:25 }} src='loading.svg'/>
+               { Tinput === foundKey.tkey && <p className={`font-bold text-sm text-green-600`}>Found key</p>}
                <p className="font-bold text-sm w-1/2 text-gray-500">
                 {foundKey.address} 
                </p> 

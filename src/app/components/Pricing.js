@@ -7,24 +7,24 @@ export default function Pricing(){
     
         {
           name:'Starter Plan',
-          price:500,
-          discount:600,
+          price:1000,
+          discount:1500,
           txt:'Starter Plan for personal use'
         },{
           name:'Basic Plan',
-          price:750,
-          discount:800,
+          price:2500,
+          discount:2000,
           txt:'Basic plan for combined use'
           
         },{
           name:'Business Plan',
-          price:1000,
-          discount:1250,
+          price:5000,
+          discount:6250,
           txt:'Business Plan'
         },{
           name:'Premium Plan',
-          price:2000,
-          discount:2500,
+          price:10000,
+          discount:15500,
           txt:'Premium plan for multiple businesses'
         },
       ]

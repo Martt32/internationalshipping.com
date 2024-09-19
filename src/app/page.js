@@ -11,14 +11,14 @@ export default function App (){
     
         {
           name:'Starter',
-          price:500,
+          price:1000,
           min:100,
           length:'5',
           percentage:25,
           discount:false
         },{
           name:'Premium',
-          price:2000,
+          price:2500,
           length:'10 days',
           percentage:35,
           min:500,
@@ -26,14 +26,14 @@ export default function App (){
           
         },{
           name:'Gold',
-          price:5000,
+          price:7500,
           length:'15 days',
           min:2000,
           percentage:45,
           discount:false,
         },{
           name:'Diamond',
-          price:10000,
+          price:15000,
           min:5000,
           length:'20 days',
           percentage:55,
